@@ -1,0 +1,14 @@
+{% load static %}<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="PMK Consultancy designs, engineers and supports secure digital products for ambitious businesses.">
+<meta name="theme-color" content="#070d1b"><title>{% block title %}PMK Consultancy — Engineering what's next{% endblock %}</title>
+<link rel="stylesheet" href="{% static 'css/enterprise.css' %}"></head>
+<body><div class="announcement">DESIGNED FOR AMBITION <span>✦</span> ENGINEERED FOR TRUST</div>
+<header class="header"><div class="shell nav"><a class="brand" href="{% url 'home' %}" aria-label="PMK Consultancy homepage">
+{% if pmk_site.logo %}<img class="brand-logo" src="{{ pmk_site.logo.url }}" alt="PMK Consultancy logo">{% else %}<span class="brand-symbol">P<span>✦</span></span>{% endif %}
+<span class="brand-name">PMK<span class="brand-muted"> CONSULTANCY</span></span></a>
+<nav id="navigation" class="nav-links" aria-label="Main navigation"><a href="{% url 'services' %}">Expertise</a><a href="{% url 'work' %}">Work</a><a href="{% url 'about' %}">Company</a><a href="{% url 'contact' %}" class="mobile-contact">Start a project</a></nav>
+<a href="{% url 'contact' %}" class="btn btn-sm nav-contact">Let's build together <span>↗</span></a><button class="nav-toggle" type="button" aria-expanded="false" aria-controls="navigation" aria-label="Toggle navigation">☰</button></div></header>
+<main id="main">{% block content %}{% endblock %}</main>
+<footer class="footer"><div class="shell"><div class="footer-grid"><div><div class="footer-brand">PMK <span>CONSULTANCY</span></div><h2>Great things start<br>with a conversation<span class="accent">.</span></h2><a class="btn" href="{% url 'contact' %}">Discuss your project ↗</a></div><div><h3>Explore</h3><a href="{% url 'services' %}">Services</a><a href="{% url 'work' %}">Portfolio</a><a href="{% url 'about' %}">Our company</a></div><div><h3>Connect</h3><a href="{% url 'contact' %}">Get in touch</a><a href="https://www.facebook.com/profile.php?id=61573685950110" rel="noopener noreferrer" target="_blank">Facebook ↗</a></div></div><div class="footer-bottom"><span>© {% now 'Y' %} PMK Consultancy. All rights reserved.</span><span>Engineering trust. Building tomorrow.</span></div></div></footer>
+<script src="{% static 'js/enterprise.js' %}" defer></script></body></html>

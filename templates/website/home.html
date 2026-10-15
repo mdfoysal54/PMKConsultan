@@ -1,0 +1,393 @@
+
+{% extends 'website/base.html' %}
+
+{% block content %}
+
+<!-- ============================= -->
+<!-- HERO SECTION -->
+<!-- ============================= -->
+
+<section class="hero">
+    <div class="hero-glow"></div>
+
+    <div class="shell hero-layout">
+
+        <div class="hero-copy">
+
+            <div class="eyebrow">
+                <span class="eyebrow-dot"></span>
+                YOUR PARTNER IN DIGITAL TRANSFORMATION
+            </div>
+
+            <h1>
+                Ideas into impact<span class="accent">.</span>
+                <br>
+                <span class="outline">Technology</span>
+                into growth.
+            </h1>
+
+            <p>
+                We design, build and evolve digital experiences,
+                business platforms and secure software that help
+                ambitious organizations move forward.
+            </p>
+
+            <div class="hero-actions">
+
+                <a href="{% url 'contact' %}" class="btn">
+                    Start your project
+                    <span>↗</span>
+                </a>
+
+                <a href="{% url 'services' %}" class="text-link">
+                    Explore our expertise
+                    <span>↗</span>
+                </a>
+
+            </div>
+
+            <div class="hero-proof">
+                <span class="proof-line"></span>
+                <span>ENGINEERED WITH PURPOSE</span>
+                <span>✦</span>
+                <span>BUILT FOR THE LONG TERM</span>
+            </div>
+
+        </div>
+
+        <!-- HERO ART -->
+
+        <div class="hero-art" aria-hidden="true">
+
+            <div class="orbit orbit-one"></div>
+            <div class="orbit orbit-two"></div>
+
+            <div class="art-core">
+                <span class="core-letter">P</span>
+                <span class="core-spark">✦</span>
+            </div>
+
+            <div class="floating floating-one">
+                DESIGN <span>↗</span>
+            </div>
+
+            <div class="floating floating-two">
+                SECURITY <span>✳</span>
+            </div>
+
+            <div class="floating floating-three">
+                ENGINEERING <span>↗</span>
+            </div>
+
+            <div class="art-caption">
+                BEYOND THE EXPECTED
+                <span>001 / ∞</span>
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="hero-bottom shell">
+        <span>01 — WHO WE ARE</span>
+        <span>SCROLL TO EXPLORE ↓</span>
+    </div>
+
+</section>
+
+
+<!-- ============================= -->
+<!-- TRUST / BUSINESS SEGMENTS -->
+<!-- ============================= -->
+
+<section class="trust-strip">
+
+    <div class="shell">
+
+        <span>BUILT FOR EVERY STAGE OF BUSINESS</span>
+
+        <div class="trust-items">
+            <span>STARTUPS</span>
+            <i>✦</i>
+            <span>GROWING BRANDS</span>
+            <i>✦</i>
+            <span>RETAIL</span>
+            <i>✦</i>
+            <span>ENTERPRISE</span>
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ============================= -->
+<!-- SERVICES SECTION -->
+<!-- ============================= -->
+
+<section class="section section-light" id="expertise">
+
+    <div class="shell">
+
+        <div class="section-heading">
+
+            <div>
+                <div class="kicker">
+                    01 / OUR EXPERTISE
+                </div>
+
+                <h2>
+                    Complex challenges.
+                    <br>
+                    <em>Clear solutions.</em>
+                </h2>
+            </div>
+
+            <p>
+                From your first website to mission-critical
+                business systems, we connect design,
+                technology and commercial thinking.
+            </p>
+
+        </div>
+
+        <div class="service-grid">
+
+            {% for service in services %}
+
+            <article class="service-card">
+
+                <div class="service-top">
+
+                    <span class="service-icon">
+                        {{ service.icon|default:"✦" }}
+                    </span>
+
+                    <span class="service-index">
+                        0{{ forloop.counter }}
+                    </span>
+
+                </div>
+
+                <div>
+
+                    <h3>
+                        {{ service.title }}
+                    </h3>
+
+                    <p>
+                        {{ service.short_description }}
+                    </p>
+
+                </div>
+
+                <a
+                    href="{% url 'contact' %}"
+                    class="service-arrow"
+                    aria-label="Ask about {{ service.title }}"
+                >
+                    ↗
+                </a>
+
+            </article>
+
+            {% empty %}
+
+            <div class="service-card">
+                <h3>Our expertise</h3>
+                <p>
+                    Our service catalog is being updated.
+                    Contact us to discuss your project.
+                </p>
+            </div>
+
+            {% endfor %}
+
+        </div>
+
+        <div class="section-end">
+
+            <a href="{% url 'services' %}" class="text-link dark">
+                Explore all capabilities ↗
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ============================= -->
+<!-- INDUSTRIES SECTION -->
+<!-- ============================= -->
+
+<section class="section section-dark">
+
+    <div class="shell">
+
+        <div class="kicker kicker-blue">
+            02 / INDUSTRIES
+        </div>
+
+        <div class="section-heading compact">
+
+            <h2>
+                Built around
+                <br>
+                <em>your world.</em>
+            </h2>
+
+            <p>
+                Every industry has unique workflows.
+                We shape technology around the real
+                problems your people and customers face.
+            </p>
+
+        </div>
+
+        <div class="industry-grid">
+
+            {% for industry in industries %}
+
+            <div class="industry-item">
+
+                <span class="industry-number">
+                    0{{ forloop.counter }}
+                </span>
+
+                <h3>
+                    {{ industry.name }}
+                </h3>
+
+                <span class="industry-plus">
+                    ↗
+                </span>
+
+            </div>
+
+            {% empty %}
+
+            <div class="industry-item">
+                <h3>
+                    Solutions for growing businesses
+                </h3>
+            </div>
+
+            {% endfor %}
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ============================= -->
+<!-- DEVELOPMENT PROCESS -->
+<!-- ============================= -->
+
+<section class="section section-light process-section">
+
+    <div class="shell">
+
+        <div class="kicker">
+            03 / HOW WE WORK
+        </div>
+
+        <div class="section-heading">
+
+            <h2>
+                Thoughtful process.
+                <br>
+                <em>Powerful outcomes.</em>
+            </h2>
+
+            <p>
+                Clear milestones, transparent communication
+                and quality built into every stage.
+            </p>
+
+        </div>
+
+        <div class="process-grid">
+
+            <div>
+                <span>01</span>
+                <h3>Discover</h3>
+                <p>
+                    We understand your goals, users
+                    and business constraints.
+                </p>
+            </div>
+
+            <div>
+                <span>02</span>
+                <h3>Design</h3>
+                <p>
+                    We shape the experience and engineer
+                    a scalable solution.
+                </p>
+            </div>
+
+            <div>
+                <span>03</span>
+                <h3>Develop</h3>
+                <p>
+                    We build, review and test
+                    with security in mind.
+                </p>
+            </div>
+
+            <div>
+                <span>04</span>
+                <h3>Evolve</h3>
+                <p>
+                    We launch, support and improve
+                    as your business grows.
+                </p>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ============================= -->
+<!-- FINAL CALL TO ACTION -->
+<!-- ============================= -->
+
+<section class="cta-section">
+
+    <div class="shell cta-inner">
+
+        <div>
+
+            <div class="kicker kicker-blue">
+                THE NEXT STEP STARTS HERE
+            </div>
+
+            <h2>
+                Have something
+                <br>
+                <em>ambitious in mind?</em>
+            </h2>
+
+            <p>
+                Tell us what you're building.
+                We'll help you explore the right next step.
+            </p>
+
+        </div>
+
+        <a href="{% url 'contact' %}" class="btn btn-white">
+            Let's talk about it ↗
+        </a>
+
+    </div>
+
+</section>
+
+{% endblock %}

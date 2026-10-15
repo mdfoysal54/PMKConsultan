@@ -1,0 +1,76 @@
+{% extends 'website/base.html' %}
+
+{% block title %}
+Services | PMK Consultancy
+{% endblock %}
+
+{% block content %}
+
+<section class="page-hero">
+    <div class="shell">
+        <div class="kicker kicker-blue">
+            WHAT WE DO
+        </div>
+
+        <h1>
+            Technology expertise for your next chapter.
+        </h1>
+
+        <p>
+            From customer-facing websites to internal
+            enterprise systems, we design and build
+            around real business needs.
+        </p>
+    </div>
+</section>
+
+<section class="section">
+    <div class="shell">
+        <div class="service-grid">
+
+            {% for service in services %}
+
+            <article class="service-card">
+
+                <div class="service-top">
+                    <span class="service-icon">
+                        {{ service.icon }}
+                    </span>
+
+                    <span class="service-index">
+                        0{{ forloop.counter }}
+                    </span>
+                </div>
+
+                <div>
+                    <h3>{{ service.title }}</h3>
+
+                    <p>
+                        {{ service.short_description }}
+                    </p>
+                </div>
+
+                <a
+                    class="service-arrow"
+                    href="{% url 'contact' %}"
+                    aria-label="Discuss {{ service.title }}"
+                >
+                    ↗
+                </a>
+
+            </article>
+
+            {% empty %}
+
+            <p>
+                Our service catalog is being updated.
+                Contact us to discuss your project.
+            </p>
+
+            {% endfor %}
+
+        </div>
+    </div>
+</section>
+
+{% endblock %}
